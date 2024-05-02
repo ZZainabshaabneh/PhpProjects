@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box; 
+}
+body{
+    background-color: #EEE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.head,.page{
+    text-align: center;
+}
+.head{
+    font-size: 40px;
+    margin: 30px 0 0;
+}
+.page{
+    font-size: 20px;
+    margin: 15px 0 40px;
+}
+.ki{
+    background-color: #fff;
+    padding: 30px;
+    margin: 30px auto;
+    border: 3px solid #ccc;
+    width: 450px;
+   
+}
+.ki .skillName{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.ki .sillNum{
+
+background-color: aliceblue;
+padding: 10px;
+position: relative;
+}
+.ki .sillNum  span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:0;
+    height: 100%;
+    background-color: rgb(55, 98, 8);
+
+}

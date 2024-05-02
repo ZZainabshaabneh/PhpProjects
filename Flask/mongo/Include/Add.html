@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+<h2>Add User</h2>
+<form action="/users" method="post">
+    Name: <input type="text" name="Name" required><br>
+    Company: <input type="text" name="Company" required><br>
+    Title: <input type="text" name="Title" required><br>
+    Gender:
+    <select name="Gender" required>
+        <option value="">Select</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select><br>
+    Age: <input type="number" name="Age" required min="0"><br>
+    Salary: <input type="number" name="Salary" required step="0.01"><br>
+    Experience: <input type="text" name="Experience" required><br>
+    <input type="submit" value="Add User">
+</form>
+</body>
+</html>

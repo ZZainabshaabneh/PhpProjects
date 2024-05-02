@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="head">{{headerPage}}</h1>
+    <p class="page"> {{Descripction}}</p>
+    {% for skill in skills %}
+        <div class="ki">
+            <div class="skillName">{{skill[0]}}</div>
+            <div class="sillNum">
+                <span data-width="{{skill[1]}}%"></span>
+            </div>
+        </div>
+    {% endfor %}
+    <!--{{skills[0]}} -->
+    
+{% endblock %}
