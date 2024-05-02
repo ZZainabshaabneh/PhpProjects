@@ -1,0 +1,48 @@
+/* تطبيق تنسيق على عناصر الإدخال من نوع كلمة المرور والنص */
+input[type=password], [type=text]{
+  width: 200px; /* تحديد عرض العنصر */
+  height: 35px; /* تحديد ارتفاع العنصر */
+  box-shadow: 6px 6px 8px grey; /* إضافة ظل للعنصر */
+  border: none; /* إزالة الحدود */
+  border-radius: 4px; /* تدوير الزوايا */
+  text-align: center; /* محاذاة النص للوسط */
+}
+
+/* تطبيق تنسيق على عناصر الإدخال من نوع submit */
+input[type=submit]{
+  width: 200px; /* تحديد عرض العنصر */
+  height: 35px; /* تحديد ارتفاع العنصر */
+  margin-top: 20px; /* تحديد الهامش العلوي */
+  border: none; /* إزالة الحدود */
+  background-color: #49c1a2; /* تغيير لون الخلفية */
+  color: white; /* تغيير لون النص */
+  font-size: 18px; /* تغيير حجم الخط */
+}
+
+/* تغيير تنسيق عناصر الإدخال من نوع نص عند تمرير الماوس فوقها */
+input[type=text]:hover{
+  box-shadow: 4px 4px 5px grey; /* تغيير الظل */
+  border: none; /* إزالة الحدود */
+  scale: 1.09; /* تكبير العنصر */
+  background-color: seashell; /* تغيير لون الخلفية */
+}
+
+/* تغيير تنسيق عناصر الإدخال من نوع كلمة المرور عند تمرير الماوس فوقها */
+input[type=password]:hover{
+  box-shadow: 4px 4px 5px grey; /* تغيير الظل */
+  border: none; /* إزالة الحدود */
+  scale: 1.09; /* تكبير العنصر */
+  background-color: seashell; /* تغيير لون الخلفية */
+}
+
+/* تطبيق تنسيق على عنصر بفئة محددة */
+.ma{
+  width: 200px; /* تحديد عرض العنصر */
+  pointer-events: all; /* السماح بالتفاعلات مثل النقر */
+  padding: 80px; /* تحديد البادئة داخل العنصر */
+  background-color: beige; /* تغيير لون الخلفية */
+  box-shadow: 2px 2px 6px lightgrey; /* إضافة ظل للعنصر */
+  border-radius: 8px; /* تدوير الزوايا */
+  margin: 200px auto; /* تحديد الهامش لوضع العنصر في الوسط */
+  justify-content: center; /* محاذاة المحتوى للوسط */
+}

@@ -1,0 +1,98 @@
+<?php 
+
+error_reporting(0);
+?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="signin.css">
+</head>
+
+<body>
+<form method="post" action="signup.php">
+
+<div class="rightside" style="position:absolute;right:40%;">
+<table>
+
+<tr>
+<td>
+BirthDate: 
+</td>
+<td>
+<input type="date" name="bd" required value="<?php echo $_POST['bd'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="text" name="username" placeholder="username (max: 20 letters)" required value="<?php echo $_POST['username'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="password" name="pass1" placeholder="password (max: 15 symbol)" required value="<?php echo $_POST['pass1'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="password" name="pass2" placeholder="confirm password" required value="<?php echo $_POST['pass2'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="submit" name="signup" value="signup">
+</td>
+</tr>
+
+</table>
+<span style="width:95%;font-size:12px;">if you already have an account, please <a href="signin.php">sign in</a></span>
+<?php 
+ 
+if(isset($_POST['signup'])){
+$bd=$_POST['bd'];
+$username=$_POST['username'];
+$pass1=$_POST['pass1'];
+$pass2=$_POST['pass2'];
+
+
+echo "<h2 style='color:red;'>";
+
+if(date("Y-m-d")-$bd<18) echo "under 18!";
+else if(strlen($username)<5) echo "username must be 5 letters or more!";
+else if($pass1!=$pass2) echo "password and confirmation missmatch!";
+else {
+    
+ //1. create connection with the database   
+ $connect=mysqli_connect("localhost","root","","profile2");
+ 
+ //sql query
+ $q="insert into users values('$username','$pass1','$bd');";
+ 
+ 
+ //php function
+ mysqli_query($connect,$q);
+ 
+ mkdir($username);
+ 
+    echo "<script>
+alert('welcome to our page!');
+window.location.href='signin.php';
+</script>";
+}
+echo "</h2>";
+}
+?>
+</div>
+
+</form> 
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="signin.css">
+</head>
+
+<body>
+<form method="post" action="signup.php">
+<div class="rightside" style="position:absolute;right:40%;">
+<table>
+
+<tr>
+<td>
+BirthDate: 
+</td>
+<td>
+<input type="date" name="bd" required value="<?php echo $_POST['bd'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="text" name="username" placeholder="username (max: 20 letters)" required value="<?php echo $_POST['username'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="password" name="pass1" placeholder="password (max: 15 symbol)" required value="<?php echo $_POST['pass1'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="password" name="pass2" placeholder="confirm password" required value="<?php echo $_POST['pass2'];?>">
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="submit" name="signup" value="signup">
+</td>
+</tr>
+
+</table>
+<span style="width:95%;font-size:12px;">if you already have an account, please <a href="signin.php">sign in</a></span>
+<?php 
+if(isset($_POST['signup'])){
+    $bd = isset($_POST['bd']) ? $_POST['bd'] : ''; // Check if $_POST['bd'] is set, if not, assign an empty string
+    $username = isset($_POST['username']) ? $_POST['username'] : ''; // Check if $_POST['username'] is set, if not, assign an empty string
+    $pass1 = isset($_POST['pass1']) ? $_POST['pass1'] : ''; // Check if $_POST['pass1'] is set, if not, assign an empty string
+    $pass2 = isset($_POST['pass2']) ? $_POST['pass2'] : ''; // Check if $_POST['pass2'] is set, if not, assign an empty string
+
+
+echo "<h2 style='color:red;'>";
+
+if(date("Y-m-d")-$bd<18) echo "under 18!";
+else if(strlen($username)<5) echo "username must be 5 letters or more!";
+else if($pass1!=$pass2) echo "password and confirmation missmatch!";
+else {
+ //1. create connection with the database   
+ $connect=mysqli_connect("localhost","root","","profile2");
+ 
+ //sql query
+ $q="insert into users values('$username','$pass1','$bd');";
+ 
+ //php function
+ mysqli_query($connect,$q);
+ 
+ mkdir($username);
+ 
+    echo "<script>
+alert('welcome!');
+window.location.href='signin.php';
+</script>";
+}
+echo "</h2>";
+}
+?>
+</div>
+</form> 
+
+
+</body>
+
+</html>
